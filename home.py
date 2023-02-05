@@ -16,7 +16,7 @@ def app():
     # Welcome to our Airbnb Melbourne data science project :sparkles:
 
 
-    We aim to help you consciously pick your stay
+    Let us help you pick your dream holiday acccommodation in Melbourne!
      ''')
     st.write('''----''')
 
@@ -41,7 +41,7 @@ def app():
         left_col, right_col = st.columns(2)
         with left_col: 
             st.header('More about the project')
-            st.write('We picked our AirBnb data from Kaggle, the most known dataset source. Then we proceed to analyzing it and visualizing the results to help you discover best options when visiting Melbourne. Above you can navigate to Reviews page (to see if other people liked the place) and to the Map page, which will show you the locality and places around')
+            st.write('We sourced our AirBnb data from Kaggle. We have analysed and visualised all the information you need to know about all the neighbourhood and properties you can choose from in Melbourne. Above you can navigate to the Neighbourhood page (which shows reviews and details about each specific neighbourhood) and to the Reviews page (to see if what other holidaymakers have said about the place. It is important to note that we are working with historical Airbnb listings, with the data was last scraped in 2018. It does not represent current property listings and prices.)
             st.write('[You can see our dataset here  >](https://www.kaggle.com/datasets/tylerx/melbourne-airbnb-open-data)')
         with right_col:
             st_lottie(pic_load, height = 300, key = 'coding')
@@ -57,7 +57,7 @@ def app():
 
         #Contact form 
         with st.container():
-            st.subheader('You can send us your feedback')
+            st.subheader('Please send us your feedback here:')
             contact_form = '''
             <form action="https://formsubmit.co/80243939@fsv.cuni.cz" method="POST">
                  <input type = 'hidden' name = 'captcha_' value = 'false'>
