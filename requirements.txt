@@ -2,15 +2,12 @@ Counter==1.0.0
 folium==0.12.1
 geojson==3.0.0
 geopandas==0.9.0
-matplotlib @ file:///opt/concourse/worker/volumes/live/41e8cd50-031f-4dda-5787-dd3c4f4e0f08/volume/matplotlib-suite_1613407855571/work
 multipledispatch==0.6.0
 multitasking==0.0.11
-nltk @ file:///tmp/build/80754af9/nltk_1618327084230/work
 pandas==1.2.4
 plotly==5.3.1
 streamlit==1.1.0
 streamlit-folium==0.4.0
 streamlit-lottie==0.0.3
 textblob==0.17.1
-toml @ file:///tmp/build/80754af9/toml_1616166611790/work
 wordcloud==1.8.2.2
