@@ -1,1 +1,9 @@
-To run streamlit on your computer, enter on the terminal: enter streamlit run finalproject.py
+Welcome to our data science project! We aim to make booking Airbnb's in Melbourne, Australia easier for you - especially as residents of a foreign country.
+
+We will help you find which areas to pick and which AirBnb's to book.
+
+You can also view our finished project on: https://ffiizzyy-midsemwinter22-finalproject-yltzf5.streamlit.app
+
+We hope you enjoy using the app and see value in what we have created!
+
+Feliza and Polina :)
