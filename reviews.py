@@ -8,7 +8,7 @@ from wordcloud import WordCloud
 from collections import Counter
 
 #Create sidebar
-# def app():
+def app():
     #read files, create dfs for future drop-down list
     df = pd.read_csv("cleansed_listings_dec18.csv", low_memory=False)
 
