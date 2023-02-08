@@ -2,8 +2,15 @@
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt 
+
+import subprocess
+cmd = ['python3','-m','textblob.download_corpora']
+subprocess.run(cmd)
+
+import corpora
+
 from textblob import TextBlob
-import nltk
+# import nltk
 from wordcloud import WordCloud
 from collections import Counter
 import requests 
@@ -85,6 +92,8 @@ if page == 'Help me choose a property':
     st.write("---")
     st.subheader("Reviews Analysis")
     st.write("This property has", pos_count, "positive reviews and", neg_count, "negative reviews.")
+
+    print(reviews_subset['comments'])
 
     # Extract part-of-speech tags from the 'comments' column
     reviews_subset.loc[:, 'pos_tags'] = reviews_subset['comments'].apply(lambda 
