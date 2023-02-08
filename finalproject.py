@@ -290,9 +290,8 @@ if page == 'I want to learn more about Melbourne':
         legend_name = "Median price per night (AU$)",
     )
     # add labels to the map
-    median_price_by_city_df_indexed = median_price_by_city_df.set_index('neighbourhood')
     for s in city_layer.geojson.data['features']:
-        s['neighbourhood']['Median Price'] = median_price_by_city_df_indexed.loc[s['neighbourhood'], 'Median Price']
+        s['neighbourhood']['Median Price'] = median_price_by_city_df.loc[s['neighbourhood'], 'Median Price']
 
     city_layer.add_to(map)
     folium.LayerControl().add_to(map)
