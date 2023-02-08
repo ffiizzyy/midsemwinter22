@@ -1,15 +1,12 @@
 import pandas as pd
 from textblob import TextBlob
-import nltk
+# import nltk
 from wordcloud import WordCloud
 import matplotlib.pyplot as plt
 from collections import Counter
 import streamlit as st 
 import requests 
 from streamlit_lottie import st_lottie
-
-
-
 
 def app():
     st.write('''
@@ -72,69 +69,3 @@ def app():
                 st.markdown(contact_form, unsafe_allow_html = True)
             with right_column: 
                 st.empty()
-
-    
-    
-
-        
-    
-
-
-
-
-    
-
-
-    
-    
-
-
-
-
-
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-

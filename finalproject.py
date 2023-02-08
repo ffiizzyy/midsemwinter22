@@ -2,9 +2,9 @@
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt 
-import corpora
+# import corpora
 from textblob import TextBlob
-# import nltk
+import nltk
 from wordcloud import WordCloud
 from collections import Counter
 import requests 
@@ -13,6 +13,10 @@ import geopandas as gpd
 import folium
 from streamlit_folium import folium_static
 from folium.plugins import FastMarkerCluster
+import subprocess
+import sys
+
+subprocess.run([f"{sys.executable}", "script.py"])
 
 # Cleaning and setting up dataframe
 st.set_option('deprecation.showPyplotGlobalUse', False)
