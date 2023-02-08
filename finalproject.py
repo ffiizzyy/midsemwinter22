@@ -3,7 +3,7 @@ import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt 
 from textblob import TextBlob
-import nltk
+import nltk_download_utils
 from wordcloud import WordCloud
 from collections import Counter
 import requests 
@@ -15,9 +15,13 @@ from folium.plugins import FastMarkerCluster
 import subprocess
 import sys
 
-subprocess.run([f"{sys.executable}", "corpora.py"])
+# subprocess.run([f"{sys.executable}", "corpora.py"])
 
-import corpora
+import subprocess
+cmd = ['python3','-m','textblob.download_corpora']
+subprocess.run(cmd)
+print("Working")
+
 
 # Cleaning and setting up dataframe
 st.set_option('deprecation.showPyplotGlobalUse', False)
