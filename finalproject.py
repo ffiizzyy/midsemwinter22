@@ -2,7 +2,7 @@
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt
-import nltk_download_utils
+import nltk
 from textblob import TextBlob
 from wordcloud import WordCloud
 from collections import Counter
@@ -15,10 +15,16 @@ from folium.plugins import FastMarkerCluster
 import subprocess
 import sys
 
-import subprocess
-cmd = ['python3','-m','textblob.download_corpora']
-subprocess.run(cmd)
-print("Working")
+# import subprocess
+# cmd = ['python3','-m','textblob.download_corpora']
+# subprocess.run(cmd)
+# print("Working")
+
+
+nltk.download('wordnet')
+nltk.download('punkt')
+nltk.download('all-corpora')
+nltk.download('averaged_perceptron_tagger')
 
 
 # Cleaning and setting up dataframe
