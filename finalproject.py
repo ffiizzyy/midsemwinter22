@@ -2,7 +2,6 @@
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt 
-# import corpora
 from textblob import TextBlob
 import nltk
 from wordcloud import WordCloud
@@ -17,6 +16,8 @@ import subprocess
 import sys
 
 subprocess.run([f"{sys.executable}", "corpora.py"])
+
+import corpora
 
 # Cleaning and setting up dataframe
 st.set_option('deprecation.showPyplotGlobalUse', False)
