@@ -290,12 +290,10 @@ if page == 'I want to learn more about Melbourne':
         legend_name = "Median price per night (AU$)",
     )
     # add labels to the map
-    for index, row in melbmap_gdf.iterrows():
-        folium.Marker(
-            location=[row['Latitude'], row['Longitude']],
-            popup=row['neighbourhood'],
-            tooltip=row['Count']
-    ).add_to(map)
+    median_price_by_city_df_indexed = median_price_by_city_df.set_index('neighbourhood')
+    for s in city_layer.geojson.data['features']:
+        s['Neighbourhood']['Median Price'] = median_price_by_city_df_indexed.loc[s['neighbourhood'], 'Median Price']
+
 
     city_layer.add_to(map)
     folium.LayerControl().add_to(map)
