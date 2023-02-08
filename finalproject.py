@@ -16,7 +16,7 @@ from folium.plugins import FastMarkerCluster
 import subprocess
 import sys
 
-subprocess.run([f"{sys.executable}", "script.py"])
+subprocess.run([f"{sys.executable}", "corpora.py"])
 
 # Cleaning and setting up dataframe
 st.set_option('deprecation.showPyplotGlobalUse', False)
