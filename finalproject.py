@@ -42,7 +42,7 @@ if page == 'Help me choose a property':
     max_guest_calc = cleansed[cleansed['city'] == city][cleansed['neighborhood'] == neighbourhood][cleansed['room_type'] == prop_type]['guests_included'].max()
 
     if min_guest_calc != max_guest_calc:
-        num_of_guests = st.sidebar.slider('Number of guests:', min_value=min_guest_calc, max_value=max_guest_calc)
+        num_of_guests = st.sidebar.slider('Number of guests:', min_value=int(min_guest_calc), max_value=int(max_guest_calc))
     else:
         st.sidebar.write('Maximum number of guests:', max_guest_calc)
         num_of_guests = max_guest_calc
@@ -51,7 +51,7 @@ if page == 'Help me choose a property':
     max_price_calc = cleansed[cleansed['city'] == city][cleansed['neighborhood'] == neighbourhood][cleansed['room_type'] == prop_type][cleansed['guests_included'] == num_of_guests]['price'].max()
 
     if min_price_calc != max_price_calc:
-        max_price = st.sidebar.slider('Maximum price per night:', min_value=min_price_calc, max_value=max_price_calc)
+        max_price = st.sidebar.slider('Maximum price per night:', min_value=int(min_price_calc), max_value=int(max_price_calc))
     else: 
         st.sidebar.write('Maximum price per night: $', max_price_calc)
         max_price = max_price_calc
