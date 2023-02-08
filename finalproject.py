@@ -1,9 +1,9 @@
 # Import packages
 import pandas as pd
 import streamlit as st
-import matplotlib.pyplot as plt 
-from textblob import TextBlob
+import matplotlib.pyplot as plt
 import nltk_download_utils
+from textblob import TextBlob
 from wordcloud import WordCloud
 from collections import Counter
 import requests 
