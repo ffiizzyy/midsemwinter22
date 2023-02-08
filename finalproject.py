@@ -15,8 +15,6 @@ from folium.plugins import FastMarkerCluster
 import subprocess
 import sys
 
-# subprocess.run([f"{sys.executable}", "corpora.py"])
-
 import subprocess
 cmd = ['python3','-m','textblob.download_corpora']
 subprocess.run(cmd)
