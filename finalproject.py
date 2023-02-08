@@ -2,13 +2,7 @@
 import pandas as pd
 import streamlit as st
 import matplotlib.pyplot as plt 
-
-import subprocess
-cmd = ['python3','-m','textblob.download_corpora']
-subprocess.run(cmd)
-
 import corpora
-
 from textblob import TextBlob
 # import nltk
 from wordcloud import WordCloud
