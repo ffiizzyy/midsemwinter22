@@ -44,6 +44,7 @@ pageselector = ['Home', 'I want to learn more about Melbourne', 'Help me choose 
 page = st.sidebar.selectbox('Choose page:', options = pageselector)
 st.sidebar.write('---')
 
+# Sidebar options and main page displayed depends on the page that user has chosen
 if page == 'Help me choose a property':
     # Sidebar user options
     city = st.sidebar.selectbox('Council Location:', list(sorted(cleansed['city'].unique())))
@@ -72,13 +73,14 @@ if page == 'Help me choose a property':
 
     listing_id_chosen = st.sidebar.selectbox('Select listing to view:', cleansed[cleansed['city'] == city][cleansed['neighborhood'] == neighbourhood][cleansed['room_type'] == prop_type][cleansed['guests_included'] == num_of_guests][cleansed['price'] <= max_price]['id'].unique()) 
 
-    # Sentiment analysis
+    # Display basic data about airbnb
     st.subheader("Sentiment Analysis of Individual Airbnb Reviews")
     st.write("This page will help you evaluate if you should stay at your chosen Airbnb. The wordclouds will show the most mentioned positive and negative attributes of the property.")
 
     st.write("This table summarises all the relevant information about the property:")
     st.dataframe(cleansed[cleansed['id'] == listing_id_chosen])
 
+    # Load csv for sentiment analysis
     reviews = pd.read_csv("reviews_dec18.csv")
     reviews['comments'] = reviews['comments'].astype(str)
 
@@ -170,7 +172,6 @@ if page == 'Help me choose a property':
     st.write("Read the reviews left by previous guests:")
     st.dataframe(reviews_subset[['date','reviewer_name','comments']])
 
-# Sidebar for user input depends on the page chosen
 if page == 'Help me choose a neighbourhood':
     st.subheader('Explore a neighbourhood!')
     st.write("Don't know where to stay? Choose an area you are curious below and learn more about it!")
@@ -180,7 +181,7 @@ if page == 'Help me choose a neighbourhood':
     
     # Main body of neighbourhoods page
     if neighbourhood:
-        neighbourhood_count = cleansed[[cleansed['city'] == city][cleansed['neighborhood'] == neighbourhood]].shape[0]
+        neighbourhood_count = cleansed[(cleansed['city'] == city) & (cleansed['neighborhood'] == neighbourhood)].shape[0]
         st.write('The', neighbourhood, 'area in', city, 'has', neighbourhood_count, 'properties. See where they are located:')
 
         # Add map of listings in neighbourhood
@@ -289,9 +290,6 @@ if page == 'I want to learn more about Melbourne':
         line_opacity = .1,
         legend_name = "Median price per night (AU$)",
     )
-    # add labels to the map
-    for s in city_layer.geojson.data['features']:
-        s['neighbourhood']['Median Price'] = median_price_by_city_df.loc[s['neighbourhood'], 'Median Price']
 
     city_layer.add_to(map)
     folium.LayerControl().add_to(map)
