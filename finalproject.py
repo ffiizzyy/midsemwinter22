@@ -180,7 +180,7 @@ if page == 'Help me choose a neighbourhood':
     
     # Main body of neighbourhoods page
     if neighbourhood:
-        neighbourhood_count = cleansed[cleansed['neighborhood'] == neighbourhood].shape[0]
+        neighbourhood_count = cleansed[[cleansed['city'] == city][cleansed['neighborhood'] == neighbourhood]].shape[0]
         st.write('The', neighbourhood, 'area in', city, 'has', neighbourhood_count, 'properties. See where they are located:')
 
         # Add map of listings in neighbourhood
@@ -189,7 +189,9 @@ if page == 'Help me choose a neighbourhood':
         lon = df[df['city'] == city][df['neighborhood'] == neighbourhood]['longitude']
         locations = list(zip(lat, lon))
 
-        map_mel = folium.Map(location=[-37.815018, 144.946014],tiles='CartoDB Positron',zoom_start=10)
+        map_mel = folium.Map(location=[-37.815018, 144.946014],
+                             tiles='CartoDB Positron',
+                             zoom_start=10)
         FastMarkerCluster(data=locations).add_to(map_mel)
         folium_static(map_mel)
         
@@ -287,6 +289,13 @@ if page == 'I want to learn more about Melbourne':
         line_opacity = .1,
         legend_name = "Median price per night (AU$)",
     )
+    # add labels to the map
+    for index, row in data.iterrows():
+        folium.Marker(
+            location=[row['Latitude'], row['Longitude']],
+            popup=row['neighbourhood'],
+            tooltip=row['Count']
+    ).add_to(map)
 
     city_layer.add_to(map)
     folium.LayerControl().add_to(map)
