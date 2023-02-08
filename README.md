@@ -6,6 +6,8 @@ You can also view our finished project on: https://ffiizzyy-midsemwinter22-final
 
 If the link takes too long to load, please run the project in your terminal by using: streamlit run finalproject.py
 
+Additional commits were made on Feb 8 to fix issues regarding Streamlit deployment due to Streamlit-specific dependency problems on the Textblob and NLTK packages - it worked perfectly locally.
+
 We hope you enjoy using the app and see value in what we have created!
 
 Feliza and Polina :)
