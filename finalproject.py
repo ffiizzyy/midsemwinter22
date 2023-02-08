@@ -55,7 +55,7 @@ if page == 'Help me choose a property':
     min_guest_calc = cleansed[cleansed['city'] == city][cleansed['neighborhood'] == neighbourhood][cleansed['room_type'] == prop_type]['guests_included'].min()
     max_guest_calc = cleansed[cleansed['city'] == city][cleansed['neighborhood'] == neighbourhood][cleansed['room_type'] == prop_type]['guests_included'].max()
 
-    if min_guest_calc != max_guest_calc:
+    if min_guest_calc != max_guest_calc and type(min_guest_calc) in ['int', 'float'] and type(max_guest_calc) in ['int', 'float']:
         num_of_guests = st.sidebar.slider('Number of guests:', min_value=int(min_guest_calc), max_value=int(max_guest_calc))
     else:
         st.sidebar.write('Maximum number of guests:', max_guest_calc)
