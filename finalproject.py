@@ -219,7 +219,7 @@ if page == 'Home':
             with open(file_name) as f: 
                 st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html = True)
 
-        load_css('style/style.css')
+        load_css('style.css')
 
         #Contact form 
         with st.container():
