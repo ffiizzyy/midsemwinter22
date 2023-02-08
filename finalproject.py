@@ -130,7 +130,7 @@ if page == 'Help me choose a property':
 
         wordcloud = WordCloud(background_color='white', max_words=100).generate(text)
         wordcloud_array = wordcloud.to_array()
-        plt.imshow(wordcloud, interpolation='bilinear')
+        plt.imshow(wordcloud_array, interpolation='bilinear')
         plt.axis("off")
         plt.show()
         st.pyplot()
